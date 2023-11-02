@@ -6,6 +6,19 @@ let router = express.Router();
 let rateLimiter = require('../middlewares/rateLimiter');
 let mail        = require('../utils/mail');
 
+router.get('/', rateLimiter(1,3), async function(req, res, next) 
+{
+  try
+  {
+      res.status(200).json({"message": "API is ready!"})
+  }
+
+  catch(error)
+  {
+      next(error)
+  }
+})
+
 router.post('/api/contact-us', rateLimiter(1,3), async function(req, res, next) 
 {
   try
