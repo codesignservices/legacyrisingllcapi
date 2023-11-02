@@ -12,7 +12,7 @@ router.post('/api/contact-us', rateLimiter(1,3), async function(req, res, next)
   {
       let { firstName, lastName, phoneNumber, emailAddress, message } = req.body;
       
-      if(!req.body) 
+      if(!firstName || !lastName || !phoneNumber || !emailAddress || !message) 
       {
         res.status(403).json({ "message": "Fields can not be empty!" });
       }
@@ -32,9 +32,9 @@ router.post('/api/contact-us', rateLimiter(1,3), async function(req, res, next)
           <b>Message:</b> ${message}`
         }
 
-        await mail(mailOptions)
-        
         res.status(200).json({ "message": "Thanks for contacting us, we will get back to you shortly!"  })
+        
+        await mail(mailOptions)
       }
   }
 
