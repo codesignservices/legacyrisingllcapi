@@ -40,6 +40,8 @@ app.use(cors(
    origin: true,
 }))
 
+app.set('trust proxy', 1);
+
 const serverHeaders = function (req, res, next) 
 {
     var agents = 
