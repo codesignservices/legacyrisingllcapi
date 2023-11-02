@@ -41,3 +41,5 @@ else
         console.log(`App running on http://localhost:${process.env.PORT}`)
     })
 }
+
+module.exports = app

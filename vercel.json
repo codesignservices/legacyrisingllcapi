@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "handle": "server"
+    },
+    {
+      "src": "/api/contact-us",
+      "methods": ["POST"],
+      "dest": "/server"
+    }
+  ],
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ]
+}
+
