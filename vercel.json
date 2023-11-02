@@ -2,17 +2,13 @@
   "version": 2,
   "routes": [
     {
-      "handle": "server"
-    },
-    {
-      "src": "/api/contact-us",
-      "methods": ["POST"],
-      "dest": "/server"
+      "src": "/(.*)",
+      "dest": "/"
     }
   ],
   "builds": [
     {
-      "src": "server.js",
+      "src": "./server.js",
       "use": "@vercel/node"
     }
   ]
