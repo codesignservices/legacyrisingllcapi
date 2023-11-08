@@ -23,9 +23,9 @@ router.post('/api/contact-us', rateLimiter(1,3), async function(req, res, next)
 {
   try
   {
-      let { firstName, lastName, phoneNumber, emailAddress, message } = req.body;
+      let { firstName, lastName, phoneNumber, emailAddress, message, country, state } = req.body;
       
-      if(!firstName || !lastName || !phoneNumber || !emailAddress || !message) 
+      if(!firstName || !lastName || !phoneNumber || !emailAddress || !message || !country || !state) 
       {
         res.status(403).json({ "message": "Fields can not be empty!" });
       }
@@ -43,6 +43,8 @@ router.post('/api/contact-us', rateLimiter(1,3), async function(req, res, next)
           <b>Last Name:</b> ${lastName}<br>
           <b>Phone:</b> ${phoneNumber}<br>
           <b>Email:</b> ${emailAddress}<br>
+          <b>Country:</b> ${country}<br>
+          <b>State:</b> ${state}<br>
           <b>Message:</b> ${message}`
         }
 
