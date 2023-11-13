@@ -43,7 +43,7 @@ router.post('/api/contact-us', rateLimiter(1,3), async function(req, res, next)
           <b>Last Name:</b> ${lastName}<br>
           <b>Phone:</b> ${phoneNumber}<br>
           <b>Email:</b> ${emailAddress}<br>
-          <b>Country:</b> ${country}<br>
+          <b>County:</b> ${country}<br>
           <b>State:</b> ${state}<br>
           <b>Message:</b> ${message}`
         }
